@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="local/telegramlogger/db" VERSION="20260915" COMMENT="local_telegramlogger">
+  <TABLES>
+    <TABLE NAME="local_telegramlogger_queue" COMMENT="Cola de errores pendientes de enviar a Telegram">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true"/>
+        <FIELD NAME="errortype" TYPE="char" LENGTH="100" NOTNULL="true"/>
+        <FIELD NAME="message" TYPE="text" NOTNULL="true"/>
+        <FIELD NAME="errfile" TYPE="text" NOTNULL="false"/>
+        <FIELD NAME="errline" TYPE="int" LENGTH="10" NOTNULL="false"/>
+        <FIELD NAME="url" TYPE="text" NOTNULL="false"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="false"/>
+        <FIELD NAME="sent" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0"/>
+        <FIELD NAME="timesent" TYPE="int" LENGTH="10" NOTNULL="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="sent" UNIQUE="false" FIELDS="sent"/>
+      </INDEXES>
+    </TABLE>
+  </TABLES>
+</XMLDB>
